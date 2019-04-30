@@ -22,8 +22,11 @@
       fsType = "ext4";
     };
 
-  swapDevices = [ ];
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/6a2ac3d4-a2e8-47c7-902c-7c507e12ebc2"; }
+  ];
 
   nix.maxJobs = lib.mkDefault 2;
-  networking.enableIntel3945ABGFirmware = true;
+  #networking.enableIntel3945ABGFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 }

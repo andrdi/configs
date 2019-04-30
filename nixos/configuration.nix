@@ -20,7 +20,6 @@
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
   networking.hostName = "dingonix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
   # Configure network proxy if necessary
@@ -32,11 +31,6 @@
     defaultLocale = "ru_RU.UTF-8";
     consoleFont = "Cyr_a8x16";
     consoleKeyMap = "ru-ms";
-    #consoleFont = "cyr-sun16";
-    # consoleFont = "Lat2-Terminus16";
-    # consoleKeyMap = "us";
-    # defaultLocale = "en_US.UTF-8";
-    #consoleKeyMap = "ruwin_alt-UTF-8";
   };
 
   # Set your time zone.
@@ -53,6 +47,9 @@
     firefox
     chromium
     git
+    xpdf
+    xfce.xfce4-xkb-plugin
+    meld
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -82,14 +79,20 @@
   # services.xserver.enable = true;
   services.xserver = {
     enable = true;
-    # layout = "us";
-    # xkbOptions = "eurosign:e";
     xkbModel = "microsoft";
     layout = "us,ru(winkeys)";
     xkbOptions = "grp:alt_shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp";
     libinput.enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.xfce.enable = true;
+    #desktopManager.xfce.enable = true;
+    desktopManager.xfce = {
+      enable = true;
+      #xfce4-xkb-plugin.enable = true;
+      thunarPlugins = [
+        pkgs.xfce.thunar-archive-plugin
+        pkgs.xfce.thunar-volman
+      ];
+    };
   };
 
 
