@@ -42,6 +42,7 @@
     wget
     vim
     htop
+    hwinfo
     mc
     tmux
     firefox
@@ -84,10 +85,8 @@
     xkbOptions = "grp:alt_shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp";
     libinput.enable = true;
     displayManager.sddm.enable = true;
-    #desktopManager.xfce.enable = true;
     desktopManager.xfce = {
       enable = true;
-      #xfce4-xkb-plugin.enable = true;
       thunarPlugins = [
         pkgs.xfce.thunar-archive-plugin
         pkgs.xfce.thunar-volman
